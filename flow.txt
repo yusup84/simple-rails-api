@@ -1,0 +1,16 @@
+create new : rails new simple-rails-api --api --skip-action-cable --skip-active-storage --skip-test
+
+$ rails generate scaffold todo title:string complete:boolean
+
+Ini menciptakan semua yang kita perlukan untuk memulai dengan semua hal:
+
+app/models/todo.rb— Model dengan titlebidang string dan completebidang boolean.
+app/controllers/todos_controller.rb— Pengontrol dengan implementasi fungsi default untuk membuat, membaca, memperbarui, dan menghapus tugas.
+Entri dalam config/routes.rb memetakan URL ke tindakan di pengontrol itu.
+File db/migratedengan instruksi untuk membuat tabel untuk semua tugas di database kami.
+
+$ rails db:migrate
+$ rails console
+irb(main):001:0> Todo.create!(title: 'Create an API', complete: false)
+
+$ rails routes
